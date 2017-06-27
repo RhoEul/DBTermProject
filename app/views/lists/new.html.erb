@@ -1,0 +1,29 @@
+<div class="row marketing">
+<%= bootstrap_form_for @list, url: lists_path do |f| %>
+    <%= f.text_field :name %>
+    <%= f.text_area :description %>
+    <div id="poll_choices">
+      <%= render 'choice' %>
+      <%= render 'choice' %>
+    </div>
+    <a href="javascript:;" id="addNewChoice" class="btn">항목 추가</a>
+    <p>투표 게시시 100p 가 차감됩니다</p>
+    <%= f.submit '제출' %>
+<% end %>
+
+  <div style="display: none;" id="new_choice_form">
+    <%= render partial: 'choice', locals: {poll: false} %>
+  </div>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+        $("#addNewChoice").on("click", function () {
+            return $("#poll_choices").append($("#new_choice_form").html());
+        });
+
+        this.removeChoice = function (element) {
+            return element.parent().remove();
+        };
+    });
+</script>

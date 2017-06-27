@@ -1,0 +1,27 @@
+<div class="jumbotron">
+  <p class="lead">투표 할 시 50p가 부여됩니다.</p>
+  <p><%= link_to '지금 투표하러 가기!', lists_path, class: 'btn btn-lg btn-success' %></p>
+</div>
+
+<div class="row marketing">
+  <div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading">진행중인 투표</div>
+
+    <!-- Table -->
+    <table class="table">
+      <tr>
+        <th>제목</th>
+        <th>게시된 날짜</th>
+        <th>참여인원</th>
+      </tr>
+      <% @lists.each do |list| %>
+          <tr>
+            <td><%= list.name %></td>
+            <td><%= list.created_at.strftime '%F' %></td>
+            <td><%= list.participants %></td>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

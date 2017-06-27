@@ -7,6 +7,9 @@ end
 
 
 gem 'rails-erd'
+gem 'devise'
+gem 'active_link_to'
+gem 'bootstrap_form'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
