@@ -1,0 +1,45 @@
+<div class="row marketing">
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h2><%= @user.email %></h2>
+    </div>
+    <div class="panel-footer clearfix">
+      <p>생성일 : <%= @user.created_at.strftime '%F' %></p>
+      <p>포인트 : <%= @user.choices&.count * 50 - @user.lists&.count * 100 + @user.points %></p>
+      <button class="btn">포인트 증여</button>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>내 투표 <strong>작성</strong> 기록</h4>
+    </div>
+    <div class="panel-body">
+      <% if @user.lists.empty? %>
+          이런 아직 작성한 투표가 없어요 : (
+      <% else %>
+          <%= render partial: 'lists/table', locals: {lists: @user.lists} %>
+      <% end %>
+    </div>
+    <div class="panel-footer clearfix">
+      <%= button_to '더 작성하러 가기', new_list_path, class: 'btn pull-right', method: :get %>
+    </div>
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>내 투표 <strong>참여</strong> 기록</h4>
+    </div>
+    <div class="panel-body">
+      <% if @user.choices.empty? %>
+          이런 아직 참여한 투표가 없어요 : (
+      <% else %>
+          <%= render partial: 'choices/table', locals: {choices: @user.choices} %>
+      <% end %>
+    </div>
+    <div class="panel-footer clearfix">
+      <%= button_to '더 참여하러 가기', lists_path, class: 'btn pull-right', method: :get %>
+    </div>
+  </div>
+</div>

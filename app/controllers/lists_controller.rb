@@ -27,6 +27,7 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    @comment = Comment.new
   end
 
   private

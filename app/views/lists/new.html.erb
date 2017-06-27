@@ -1,12 +1,13 @@
 <div class="row marketing">
 <%= bootstrap_form_for @list, url: lists_path do |f| %>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, required: true %>
     <%= f.text_area :description %>
     <div id="poll_choices">
+      <%= label_tag '투표항목' %>
       <%= render 'choice' %>
       <%= render 'choice' %>
     </div>
-    <a href="javascript:;" id="addNewChoice" class="btn">항목 추가</a>
+    <a href="javascript:;" id="addNewChoice" class="btn pull-right btn-primary">항목 추가</a>
     <p>투표 게시시 100p 가 차감됩니다</p>
     <%= f.submit '제출' %>
 <% end %>
@@ -23,7 +24,7 @@
         });
 
         this.removeChoice = function (element) {
-            return element.parent().remove();
+            return element.parent().parent().remove();
         };
     });
 </script>

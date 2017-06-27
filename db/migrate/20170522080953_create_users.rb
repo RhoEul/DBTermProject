@@ -4,9 +4,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :name
       t.string :permission
       t.string :password
-      t.integer :point
-
-
+      t.integer :points, default: 0
       t.timestamps
     end
   end

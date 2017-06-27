@@ -1,0 +1,15 @@
+<!-- Table -->
+<table class="table">
+  <tr>
+    <th>투표 제목</th>
+    <th>투표한 날짜</th>
+    <th>선택한 선택지</th>
+  </tr>
+  <% choices.each do |choice| %>
+      <tr>
+        <td><%= link_to choice.list.name, list_path(choice.list) %></td>
+        <td><%= choice.created_at.strftime '%F' %></td>
+        <td><%= choice.name %></td>
+      </tr>
+  <% end %>
+</table>

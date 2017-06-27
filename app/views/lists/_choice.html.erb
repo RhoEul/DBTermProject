@@ -1,6 +1,8 @@
-<div class="choiceForm">
-  <%= label_tag '투표항목' %>
-  <br>
-  <%= text_field_tag "choices[]" %> <a href="#" onclick="removeChoice($(this))" class="remove-choice btn" > X </a>
-  <br>
+<div class="choiceForm form-group">
+  <div class="input-group">
+  <%= text_field_tag "choices[]", "", class: 'form-control' %>
+  <span class="input-group-btn">
+    <button class="btn btn-default" type="button" onclick="removeChoice($(this))">x</button>
+  </span>
+  </div>
 </div>

@@ -1,0 +1,15 @@
+<div class="row marketing">
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h4>회원 리스트</h4>
+    </div>
+    <div class="panel-body">
+      <% if @users.empty? %>
+          이런 아직 유저가 없어요 : (
+      <% else %>
+          <%= render partial: 'users/table', locals: {users: @users} %>
+      <% end %>
+    </div>
+  </div>
+</div>

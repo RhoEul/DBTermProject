@@ -1,0 +1,15 @@
+<!-- Table -->
+<table class="table">
+  <tr>
+    <th>아이디</th>
+    <th>포인트</th>
+    <th>삭제</th>
+  </tr>
+  <% users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.points %></td>
+        <td><%= link_to '삭제', users_path, method: :delete %></td>
+      </tr>
+  <% end %>
+</table>

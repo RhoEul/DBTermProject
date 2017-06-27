@@ -1,0 +1,15 @@
+<!-- Table -->
+<table class="table">
+  <tr>
+    <th>제목</th>
+    <th>게시된 날짜</th>
+    <th>참여인원</th>
+  </tr>
+  <% lists.each do |list| %>
+      <tr>
+        <td><%= link_to list.name, list_path(list) %></td>
+        <td><%= list.created_at.strftime '%F' %></td>
+        <td><%= list.choices.map {|c| c.users.count}.inject(&:+) %></td>
+      </tr>
+  <% end %>
+</table>

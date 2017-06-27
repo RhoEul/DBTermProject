@@ -2,12 +2,14 @@
   <nav>
     <ul class="nav nav-pills pull-right">
       <%= active_link_to '홈', root_path, wrap_tag: :li, wrap_class: 'presentation', active: :exclusive %>
+      <%= active_link_to '투표하기', lists_path, wrap_tag: :li, wrap_class: 'presentation', active: :exclusive %>
       <% if user_signed_in? %>
         <%= active_link_to '투표 작성하기', new_list_path, wrap_tag: :li, wrap_class: 'presentation', active: :exclusive %>
+        <%= active_link_to '마이 페이지', user_path(current_user), wrap_tag: :li, wrap_class: 'presentation', active: :exclusive %>
+        <%= active_link_to '로그아웃', destroy_user_session_path, wrap_tag: :li, wrap_class: 'presentation', active: :exclusive, method: :delete %>
       <% else %>
         <%= active_link_to '로그인', new_user_session_path, wrap_tag: :li, wrap_class: 'presentation', active: :exclusive %>
       <% end %>
-      <%= active_link_to '투표하기', lists_path, wrap_tag: :li, wrap_class: 'presentation', active: :exclusive %>
     </ul>
   </nav>
   <h3 class="text-muted"><%= link_to '보트스키', root_path, active: :exclusive %></h3>
