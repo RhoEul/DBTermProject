@@ -12,9 +12,9 @@ default: &default
 
 development:
   <<: *default
-  username: root
-  password: gksakswhd
-  host: 127.0.0.1
+  username: jamong
+  password: hiddentrack
+  host: 52.78.146.178
   port: 3306
   database: rhoeul-vote
 
@@ -24,9 +24,9 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  username: root
-  password: gksakswhd
-  host: 127.0.0.1
+  username: jamong
+  password: hiddentrack
+  host: 52.78.146.178
   port: 3306
   database: rhoeul-vote-test
 
