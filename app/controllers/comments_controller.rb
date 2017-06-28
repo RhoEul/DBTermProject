@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @comment = Comment.find(comment_params)
+    @comment = Comment.new(comment_params)
     @comment.list = List.find(params[:list_id])
     @comment.user = current_user
     if @comment.save
